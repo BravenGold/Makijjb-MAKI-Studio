@@ -347,10 +347,9 @@ GameObject:
   - component: {fileID: 25767427}
   - component: {fileID: 25767426}
   - component: {fileID: 25767425}
-  - component: {fileID: 25767429}
   m_Layer: 0
   m_Name: Table 2
-  m_TagString: Table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,18 +493,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &25767429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25767424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585adfa830cbc99409f665c1fd9efc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &420623915
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,10 +505,9 @@ GameObject:
   - component: {fileID: 420623918}
   - component: {fileID: 420623917}
   - component: {fileID: 420623916}
-  - component: {fileID: 420623920}
   m_Layer: 0
   m_Name: Table 3
-  m_TagString: Table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -665,18 +651,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &420623920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 420623915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585adfa830cbc99409f665c1fd9efc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &512439336
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,10 +870,9 @@ GameObject:
   - component: {fileID: 874517709}
   - component: {fileID: 874517708}
   - component: {fileID: 874517707}
-  - component: {fileID: 874517711}
   m_Layer: 0
   m_Name: Table 1
-  m_TagString: Table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1043,18 +1016,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &874517711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874517706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585adfa830cbc99409f665c1fd9efc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1077074641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1278,7 @@ GameObject:
   - component: {fileID: 1206799966}
   m_Layer: 0
   m_Name: Counter
-  m_TagString: Table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1475,7 +1436,7 @@ GameObject:
   - component: {fileID: 1335925085}
   m_Layer: 0
   m_Name: Table 4
-  m_TagString: Table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1662,7 +1623,7 @@ GameObject:
   - component: {fileID: 1830092418}
   m_Layer: 0
   m_Name: Customer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
