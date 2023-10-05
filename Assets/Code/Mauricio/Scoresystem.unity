@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.15248537, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -221,6 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b83517a4268ff4082cc82256c1634c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreBoard: {fileID: 1337649580}
+  Score: 0
 --- !u!61 &246475010
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -335,7 +337,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 885668071}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -494,7 +496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 61.04, y: -30}
+  m_AnchoredPosition: {x: 90, y: -60}
   m_SizeDelta: {x: 122.09, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337649580
