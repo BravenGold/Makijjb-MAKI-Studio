@@ -990,7 +990,6 @@ GameObject:
   - component: {fileID: 744838809}
   - component: {fileID: 744838808}
   - component: {fileID: 744838807}
-  - component: {fileID: 744838810}
   m_Layer: 0
   m_Name: DishWashSignal
   m_TagString: DishWashSignal
@@ -1151,19 +1150,6 @@ RectTransform:
   m_AnchoredPosition: {x: -4.45, y: 0.32}
   m_SizeDelta: {x: 3.3, y: 0.4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &744838810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744838806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be60a42192e164c9481845beee4e1bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DishWashSignal: {fileID: 0}
 --- !u!1 &874517706
 GameObject:
   m_ObjectHideFlags: 0
