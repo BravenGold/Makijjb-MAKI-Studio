@@ -47,7 +47,10 @@ public class UIManager : MonoBehaviour
 #endif
     }
 
-  
+    public bool IsPauseScreenActive()
+    {
+        return pauseScreen.activeInHierarchy;
+    }
     public void PauseGame(bool status)
     {
         //If status == true pause | if status == false unpause
