@@ -5,6 +5,8 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private RectTransform arrow;
     [SerializeField] private RectTransform[] buttons;
+    [SerializeField] private AudioClip changeSound;
+    [SerializeField] private AudioClip interactSound;
     private int currentPosition;
 
     private void Awake()
@@ -26,6 +28,9 @@ public class MenuManager : MonoBehaviour
     {
         currentPosition += _change;
 
+        if (_change != 0)
+            AudioManager.instance.PlaySound(changeSound);
+
         if (currentPosition < 0)
             currentPosition = buttons.Length - 1;
         else if (currentPosition > buttons.Length - 1)
@@ -39,6 +44,7 @@ public class MenuManager : MonoBehaviour
     }
     private void Interact()
     {
+        AudioManager.instance.PlaySound(interactSound);
 
         if (currentPosition == 0)
         {

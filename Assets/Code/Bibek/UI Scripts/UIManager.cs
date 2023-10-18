@@ -7,6 +7,10 @@ public class UIManager : MonoBehaviour
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
 
+    [Header("Audio Manager")]
+    [SerializeField] private AudioManager audioManager; // Direct reference to AudioManager
+
+
     private void Awake()
     {
         pauseScreen.SetActive(false);
@@ -55,6 +59,14 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0;
         else
             Time.timeScale = 1;
+    }
+    public void SoundVolume()
+    {
+        AudioManager.instance.ChangeSoundVolume(0.2f);
+    }
+    public void MusicVolume()
+    {
+        AudioManager.instance.ChangeMusicVolume(0.2f);
     }
     #endregion
 }
