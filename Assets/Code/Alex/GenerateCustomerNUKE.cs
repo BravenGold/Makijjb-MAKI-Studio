@@ -22,7 +22,7 @@ public class GenerateCustomerNUKE : MonoBehaviour
     {
         yield return new WaitForSeconds(interval);
         GameObject NewCustomer = Instantiate(customer, new Vector3(Random.Range(-5f, 5f), Random.Range(-6f, 6f), 0), Quaternion.identity);
-        CurrentCustomers++;
+        //CurrentCustomers++;
         //if (CurrentCustomers < MaxCustomers)
         //{
             StartCoroutine(SpawnCustomer(interval, customer));
