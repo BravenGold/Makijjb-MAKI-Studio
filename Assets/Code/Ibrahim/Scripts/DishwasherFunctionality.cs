@@ -17,7 +17,7 @@ public class DishwasherFunctionality : MonoBehaviour
 
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         if (platesAdded < 5)
         {
