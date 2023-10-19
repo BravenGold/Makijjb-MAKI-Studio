@@ -1,0 +1,9 @@
+{
+    "name": "JennieEditMode",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}
