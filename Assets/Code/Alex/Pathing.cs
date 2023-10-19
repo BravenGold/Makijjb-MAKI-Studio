@@ -6,7 +6,7 @@ public class Pathing : MonoBehaviour
 {
 
     public GameObject[] PathNode;
-    public GameObject Player;
+    private GameObject CustomerObject;
     public float MoveSpeed;
     float Timer;
     static Vector3 CurrentPositionHolder;
@@ -17,6 +17,7 @@ public class Pathing : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        CustomerObject = this.gameObject;
         //PathNode = GetComponentInChildren<>();
         CheckNode();
     }
@@ -24,7 +25,7 @@ public class Pathing : MonoBehaviour
     void CheckNode()
     {
         Timer = 0;
-        startPosition = Player.transform.position;
+        startPosition = CustomerObject.transform.position;
         CurrentPositionHolder = PathNode[CurrentNode].transform.position;
     }
 
@@ -34,10 +35,10 @@ public class Pathing : MonoBehaviour
 
         Timer += Time.deltaTime * MoveSpeed;
 
-        if (Player.transform.position != CurrentPositionHolder)
+        if (CustomerObject.transform.position != CurrentPositionHolder)
         {
 
-            Player.transform.position = Vector3.Lerp(startPosition, CurrentPositionHolder, Timer);
+            CustomerObject.transform.position = Vector3.Lerp(startPosition, CurrentPositionHolder, Timer);
         }
         else
         {
