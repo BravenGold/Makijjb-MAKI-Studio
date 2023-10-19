@@ -1,9 +1,0 @@
-{
-    "name": "Dishwash",
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ]
-}
