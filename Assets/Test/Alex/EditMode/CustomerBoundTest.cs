@@ -6,20 +6,21 @@ using UnityEngine.TestTools;
 
 public class CustomerBoundTest
 {
+
     // A Test behaves as an ordinary method
     [Test]
-    public void CustomerBoundTestSimplePasses()
+    public void CustomerNotExceedMax()
     {
-        // Use the Assert class to test conditions
+        var gameObject = new GameObject();
+        var CustGen = gameObject.AddComponent<GenerateCustomer>();
+        Assert.LessOrEqual(5, CustGen.CurrentCustomers);
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator CustomerBoundTestWithEnumeratorPasses()
+    public void CustomerOrderNotExceed()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
+        var gameObject = new GameObject();
+        var CustGen = gameObject.AddComponent<GenerateCustomer>();
+        Assert.LessOrEqual(CustGen.CurrentCustomers, CustGen.OrdersPlaced);
     }
+
 }
