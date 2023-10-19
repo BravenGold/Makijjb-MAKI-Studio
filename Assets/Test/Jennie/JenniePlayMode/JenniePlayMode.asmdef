@@ -1,0 +1,6 @@
+{
+    "name": "JenniePlayMode",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
