@@ -24,6 +24,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetPauseScreen(GameObject screen)
+    {
+        pauseScreen = screen;
+    }
+
+
     #region Pause
     //Restart level
     public void Restart()

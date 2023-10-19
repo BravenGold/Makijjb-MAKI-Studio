@@ -1,17 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 public class SoundIncreaseTest
 {
+    private GameObject uiManagerObject;
     private UIManager uiManager;
-    private AudioManager audioManager;
+
+    [SetUp]
+    public void Setup()
+    {
+        // Initialize the UIManager object
+        uiManagerObject = new GameObject();
+        uiManager = uiManagerObject.AddComponent<UIManager>();
+
+        GameObject mockPauseScreen = new GameObject("MockPauseScreen");
+        uiManager.SetPauseScreen(mockPauseScreen); // Assuming you add a setter method in UIManager
+    }
+
+    [TearDown]
+    public void Teardown()
+    {
+        // Cleanup after each test
+        Object.DestroyImmediate(uiManagerObject);
+    }
 
     [UnityTest]
     public IEnumerator TestVolumeBoundaries()
     {
+        // Assuming SoundVolume increments or decrements by 0.2f as per your UIManager implementation
+
         // Set to Max
         while (PlayerPrefs.GetFloat("soundVolume", 1) < 1.0f)
         {
@@ -43,7 +62,26 @@ public class SoundIncreaseTest
             yield return null;
         }
 
-        // Potentially check that the value is what you expect after 100 changes.
+        // Assert final state after rapid changes, but the exact expected value will depend on your UIManager logic.
+        // For now, leaving this assertion out.
+
+        yield return null;
     }
 
+    [UnityTest]
+    public IEnumerator RapidPauseUnpauseStressTest()
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            uiManager.PauseGame(true);
+            yield return new WaitForSeconds(0.01f); // A short wait between operations to simulate rapid but not instant toggling
+            uiManager.PauseGame(false);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        // Assert that the game is not paused after all the toggling
+        Assert.IsFalse(uiManager.IsPauseScreenActive());
+
+        yield return null;
+    }
 }
