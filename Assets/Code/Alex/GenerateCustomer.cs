@@ -12,7 +12,8 @@ public class GenerateCustomer : MonoBehaviour
     private float SpawnInterval = 3.5f;
 
     private float MaxCustomers = 5f;
-    private float CurrentCustomers = 0f;
+    public float CurrentCustomers = 0f;
+    public float OrdersPlaced = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class GenerateCustomer : MonoBehaviour
         yield return new WaitForSeconds(interval);
         GameObject NewCustomer = Instantiate(customer, new Vector3(Random.Range(-5f, 5f), Random.Range(-6f, 6f), 0), Quaternion.identity);
         CurrentCustomers++;
+        OrdersPlaced++;
         if (CurrentCustomers < MaxCustomers)
         {
             StartCoroutine(SpawnCustomer(interval, customer));

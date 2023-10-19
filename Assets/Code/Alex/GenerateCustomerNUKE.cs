@@ -11,8 +11,8 @@ public class GenerateCustomerNUKE : MonoBehaviour
     [SerializeField]
     private float SpawnInterval = 0.001f;
 
-    private float MaxCustomers = 5f;
-    private float CurrentCustomers = 0f;
+    //private float MaxCustomers = 5f;
+    //private float CurrentCustomers = 0f;
     // Start is called before the first frame update
     void Start()
     {
