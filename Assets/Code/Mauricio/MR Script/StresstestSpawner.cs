@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestFoodSpawner : MonoBehaviour{
 
     [SerializeField] GameObject[] FoodPrefab;
-    [SerializeField] float SpawnTime = 0.001f;
+    //[SerializeField] float SpawnTime = 0.001f;
     [SerializeField] float MinTrans;
     [SerializeField] float MaxTrans;
     private float amount = 9999999999999990999;
