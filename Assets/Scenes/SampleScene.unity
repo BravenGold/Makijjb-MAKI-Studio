@@ -2506,11 +2506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99050699dd90c904fa4c95a321fb26d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodPrefab:
+  foodPrefabs:
   - {fileID: 2259160978927789857, guid: cb68ad3a2bd2f604e9dd75ef8a93dae5, type: 3}
   SpawnTime: 0.5
-  MinTrans: -2
-  MaxTrans: 2
+  MinTrans: 2
+  MaxTrans: -2
 --- !u!61 &1031654170
 BoxCollider2D:
   m_ObjectHideFlags: 0
