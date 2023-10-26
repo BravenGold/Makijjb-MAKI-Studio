@@ -8,12 +8,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseScreen;
 
     [Header("Audio Manager")]
-    [SerializeField] private AudioManager audioManager; // Direct reference to AudioManager
+    [SerializeField] private IAudioManager audioManager; // Direct reference to AudioManager
 
 
     private void Awake()
     {
-        pauseScreen.SetActive(false);
+        if (pauseScreen != null)
+        {
+            pauseScreen.SetActive(false);
+        }
     }
     private void Update()
     {
@@ -27,7 +30,12 @@ public class UIManager : MonoBehaviour
     public void SetPauseScreen(GameObject screen)
     {
         pauseScreen = screen;
+        if (pauseScreen != null)
+        {
+            pauseScreen.SetActive(false);
+        }
     }
+
 
 
     #region Pause
@@ -55,7 +63,7 @@ public class UIManager : MonoBehaviour
 
     public bool IsPauseScreenActive()
     {
-        return pauseScreen.activeInHierarchy;
+        return pauseScreen ? pauseScreen.activeInHierarchy : false;
     }
     public void PauseGame(bool status)
     {
