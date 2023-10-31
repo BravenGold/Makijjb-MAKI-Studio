@@ -8,7 +8,6 @@ TagManager:
   - Table
   - DishWashSignal
   - PathContainer
-  - Food
   layers:
   - Default
   - TransparentFX

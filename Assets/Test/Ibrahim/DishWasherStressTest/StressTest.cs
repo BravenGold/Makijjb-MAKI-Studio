@@ -6,7 +6,6 @@ using UnityEngine.TestTools;
 
 public class StressTest
 {
-
     [UnityTest]
     public IEnumerator StressTestWithEnumeratorPasses()
     {
@@ -15,11 +14,11 @@ public class StressTest
         var Dishwa = gameObject.AddComponent<DishwasherFunctionality>();
 
         //max amount of clicks
-        for(int i = 0; i < 20000; i++)
+        for(int i = 0; i < 1000000; i++)
         {
             Dishwa.OnMouseDown();
         }
-        
+
         yield return null;
 
     }
