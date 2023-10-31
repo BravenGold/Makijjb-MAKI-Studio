@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour, IAudioManager
+public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance { get; private set; }
     [Header("---------- Audio Source ----------")]
@@ -31,23 +31,22 @@ public class AudioManager : MonoBehaviour, IAudioManager
         ChangeMusicVolume(0);
         ChangeSoundVolume(0);
     }
-    /*    // Start is called before the first frame update
-        void Start()
+/*    // Start is called before the first frame update
+    void Start()
+    {
+        musicSource.clip = background;
+        musicSource.Play();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!musicSource.isPlaying)
         {
             musicSource.clip = background;
             musicSource.Play();
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (!musicSource.isPlaying)
-            {
-                musicSource.clip = background;
-                musicSource.Play();
-            }
-        }*/
-
+    }*/
 
     public void PlaySound(AudioClip _sound)
     {

@@ -2117,6 +2117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b83517a4268ff4082cc82256c1634c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreBoard: {fileID: 1258019388}
+  Score: 0
 --- !u!212 &1022584545
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4269,6 +4271,7 @@ MonoBehaviour:
   - {fileID: 663379624}
   - {fileID: 1636562875}
   - {fileID: 1123157749}
+  Player: {fileID: 1830092415}
   MoveSpeed: 1
 --- !u!1 &2118150540
 GameObject:
@@ -4303,6 +4306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1907632277}
+  audioManager: {fileID: 0}
 --- !u!114 &2118150542
 MonoBehaviour:
   m_ObjectHideFlags: 0
