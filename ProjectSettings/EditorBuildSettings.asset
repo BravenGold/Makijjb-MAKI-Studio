@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Code/Bibek/MainMenu.unity
+    guid: 6a62547abee1f9c4282289fabe27e5af
   - enabled: 1
-    path: Assets/Scenes/Next Level.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 2b2d5c13196bf5b42a4f037702e361c8
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
