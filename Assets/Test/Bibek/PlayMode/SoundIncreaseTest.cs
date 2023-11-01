@@ -16,8 +16,10 @@ public class SoundIncreaseTest
         uiManager = uiManagerObject.AddComponent<UIManager>();
 
         GameObject mockPauseScreen = new GameObject("MockPauseScreen");
-        uiManager.SetPauseScreen(mockPauseScreen); // Assuming you add a setter method in UIManager
+        uiManager.SetPauseScreen(mockPauseScreen);
     }
+
+
 
     [TearDown]
     public void Teardown()
@@ -67,6 +69,17 @@ public class SoundIncreaseTest
 
         yield return null;
     }
+
+    [Test]
+    public void TestSoundVolumeIncrease()
+    {
+        var mockAudio = new MockAudioManager();
+
+        mockAudio.ChangeSoundVolume(0.2f);
+
+        Assert.AreEqual(1.0f, mockAudio.MockSoundVolume);  // Assert that the volume is clamped to 1.0f
+    }
+
 
     [UnityTest]
     public IEnumerator RapidPauseUnpauseStressTest()
