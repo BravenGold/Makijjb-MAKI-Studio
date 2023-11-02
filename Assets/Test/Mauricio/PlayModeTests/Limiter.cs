@@ -8,10 +8,12 @@ public class Limiter{
     [UnityTest]
     public IEnumerator LimiterWithEnumeratorPasses(){
         var gameObject = new GameObject();
-        var F = gameObject.AddComponent<FoodSpawner>();
-        //F.FoodPrefabPath = "Assets/Code/Mauricio/Prefab/Food";
-        //yield return F.StartCoroutine(F.FoodSpawn());
-        yield return new WaitForSeconds(10f);
-        //Assert.AreEqual(3,F.valuereturn());
+        var Spawntest = gameObject.AddComponent<FoodObjectPool>();
+        int spawnum = 0;
+        for(spawnum=0;spawnum<30;spawnum++){
+            Spawntest.GetFood();
+        }
+        Assert.AreEqual(spawnum,30);
+        return null;
     }
 }
