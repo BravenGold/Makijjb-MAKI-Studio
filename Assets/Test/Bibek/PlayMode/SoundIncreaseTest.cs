@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -25,7 +26,7 @@ public class SoundIncreaseTest
     public void Teardown()
     {
         // Cleanup after each test
-        Object.DestroyImmediate(uiManagerObject);
+        UnityEngine.Object.DestroyImmediate(uiManagerObject);
     }
 
     [UnityTest]
@@ -84,17 +85,51 @@ public class SoundIncreaseTest
     [UnityTest]
     public IEnumerator RapidPauseUnpauseStressTest()
     {
+        int iterationCount = 0;
+        bool exceptionOccurred = false;
+
         for (int i = 0; i < 100; i++)
         {
-            uiManager.PauseGame(true);
-            yield return new WaitForSeconds(0.01f); // A short wait between operations to simulate rapid but not instant toggling
-            uiManager.PauseGame(false);
-            yield return new WaitForSeconds(0.01f);
+            if (exceptionOccurred) break;
+
+            try
+            {
+                Debug.Log($"Iteration {iterationCount} - Pausing");
+                uiManager.PauseGame(true);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Exception occurred at iteration {iterationCount}: {ex.Message}");
+                exceptionOccurred = true;
+                continue;
+            }
+
+            yield return new WaitForSecondsRealtime(0.01f);
+
+            try
+            {
+                Debug.Log($"Iteration {iterationCount} - Unpausing");
+                uiManager.PauseGame(false);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Exception occurred at iteration {iterationCount}: {ex.Message}");
+                exceptionOccurred = true;
+                continue;
+            }
+
+            yield return new WaitForSecondsRealtime(0.01f);
+            iterationCount++;
         }
 
-        // Assert that the game is not paused after all the toggling
-        Assert.IsFalse(uiManager.IsPauseScreenActive());
-
-        yield return null;
+        if (!exceptionOccurred)
+        {
+            Assert.IsFalse(uiManager.IsPauseScreenActive(), "Game should not be paused after toggling.");
+        }
+        else
+        {
+            Assert.Fail($"Test failed at iteration: {iterationCount}");
+        }
     }
+
 }
