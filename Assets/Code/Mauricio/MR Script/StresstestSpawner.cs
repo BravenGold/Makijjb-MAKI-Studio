@@ -10,6 +10,7 @@ public class TestFoodSpawner : MonoBehaviour{
     [SerializeField] float MaxTrans;
     private float amount = 9999999999999990999;
     float a = 0; 
+    public int tracker = 0;
 
     // Start is called before the first frame update
     void Start(){
@@ -23,9 +24,8 @@ public class TestFoodSpawner : MonoBehaviour{
             //var position = new Vector3(wanted,transform.position.y);
             var position = transform.position - new Vector3(wanted,1,0);
             GameObject gameObject = Instantiate(FoodPrefab[Random.Range(0,FoodPrefab.Length)], position, Quaternion.identity);
-            //remove this to breakgame
-            //yield return new WaitForSeconds(SpawnTime);
-            //Destroy(gameObject, 5f);
+            tracker++;
+            //Debug.Log(tracker);
             yield return 0;
             a++;
         }
