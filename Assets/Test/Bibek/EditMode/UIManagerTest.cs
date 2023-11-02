@@ -14,6 +14,10 @@ public class UIManagerTest
         // Initialize the UIManager object
         uiManagerObject = new GameObject();
         uiManager = uiManagerObject.AddComponent<UIManager>();
+        GameObject mockPauseScreen = new GameObject("MockPauseScreen");
+        mockPauseScreen.SetActive(false); // Ensure it's inactive
+
+        uiManager.SetPauseScreen(mockPauseScreen);
     }
 
     [TearDown]
