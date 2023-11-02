@@ -5,9 +5,10 @@ using UnityEngine.Pool;
 
 public class FoodObjectPool : MonoBehaviour{
 
-    [SerializeField]private GameObject Foodprefab;
+    [SerializeField]public GameObject Foodprefab;
     [SerializeField]private Queue<GameObject> FoodPool = new Queue<GameObject>();
     [SerializeField]private int poolstarting = 30;
+    public int count = 0; 
 
     private void Start(){
         for(int i=0;i<poolstarting;i++){
@@ -21,13 +22,19 @@ public class FoodObjectPool : MonoBehaviour{
         if(FoodPool.Count > 0){
                 GameObject Food = FoodPool.Dequeue();
                 Food.SetActive(true);
+                count++;
                 return Food;
+        }else{
+            return null;
         }
-        return null;
     }
 
     public void ReturnFood(GameObject Food){
         FoodPool.Enqueue(Food);
         Food.SetActive(false);
+        count--;
+    }
+    public int Foodcount(){
+        return count;
     }
 }
