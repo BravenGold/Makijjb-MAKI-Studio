@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    public int FPS;
 
     public GameObject DishWashSignal;
     // Start is called before the first frame update
