@@ -6,7 +6,7 @@ public class Pathing : MonoBehaviour
 {
 
     public GameObject[] PathNode;
-    private GameObject CustomerObject;
+    [SerializeField] private GameObject CustomerObject;
     public float MoveSpeed;
     float Timer;
     static Vector3 CurrentPositionHolder;
@@ -17,7 +17,7 @@ public class Pathing : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        CustomerObject = this.gameObject;
+        // CustomerObject = this.gameObject;
         //PathNode = GetComponentInChildren<>();
         CheckNode();
     }

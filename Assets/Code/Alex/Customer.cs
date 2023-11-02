@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool orderPlaced = false;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Check to see if the customer has collided with the played and if the order has already been placed
+        if (collision.gameObject.tag == "Player" && orderPlaced == false)
+        {
+            Debug.Log("CUSTOMER CLICKED AND ORDER PLACED");
+            orderPlaced = true;
+            // Call functions in the future
+        }
     }
 }
