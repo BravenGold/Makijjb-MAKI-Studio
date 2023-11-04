@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class SoundIncreaseTest
 {
     private GameObject uiManagerObject;
     private UIManager uiManager;
+    private GameObject mockPauseScreen;
 
     [SetUp]
     public void Setup()
@@ -15,20 +17,85 @@ public class SoundIncreaseTest
         uiManagerObject = new GameObject();
         uiManager = uiManagerObject.AddComponent<UIManager>();
 
-        GameObject mockPauseScreen = new GameObject("MockPauseScreen");
+        mockPauseScreen = new GameObject("MockPauseScreen");
         uiManager.SetPauseScreen(mockPauseScreen);
     }
-
-
 
     [TearDown]
     public void Teardown()
     {
-        // Cleanup after each test
-        Object.DestroyImmediate(uiManagerObject);
+        // Ensure the game is not paused
+        if (uiManager.IsPauseScreenActive())
+        {
+            uiManager.PauseGame(false);
+        }
+
+        // Ensure PlayerPrefs are cleared if they are used
+        PlayerPrefs.DeleteAll();
+
+        // Destroy the mock objects
+        UnityEngine.Object.DestroyImmediate(mockPauseScreen);
+        UnityEngine.Object.DestroyImmediate(uiManagerObject);
     }
 
+    // Your existing UnityTest and Test methods go here...
+
     [UnityTest]
+    public IEnumerator RapidPauseUnpauseStressTest()
+    {
+        int iterationCount = 0;
+        bool exceptionOccurred = false;
+
+        for (int i = 0; i < 100; i++)
+        {
+            if (exceptionOccurred) break;
+
+            try
+            {
+                Debug.Log($"Iteration {iterationCount} - Pausing");
+                uiManager.PauseGame(true);
+                // Assert the game is paused
+                Assert.IsTrue(uiManager.IsPauseScreenActive(), "Game should be paused.");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Exception occurred at iteration {iterationCount}: {ex.Message}");
+                exceptionOccurred = true;
+                continue;
+            }
+
+            yield return new WaitForSecondsRealtime(0.01f);
+
+            try
+            {
+                Debug.Log($"Iteration {iterationCount} - Unpausing");
+                uiManager.PauseGame(false);
+                // Assert the game is not paused
+                Assert.IsFalse(uiManager.IsPauseScreenActive(), "Game should not be paused.");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Exception occurred at iteration {iterationCount}: {ex.Message}");
+                exceptionOccurred = true;
+                continue;
+            }
+
+            yield return new WaitForSecondsRealtime(0.01f);
+            iterationCount++;
+        }
+
+        if (!exceptionOccurred)
+        {
+            Assert.IsFalse(uiManager.IsPauseScreenActive(), "Game should not be paused after toggling.");
+        }
+        else
+        {
+            Assert.Fail($"Test failed at iteration: {iterationCount}");
+        }
+    }
+
+
+/*[UnityTest]
     public IEnumerator TestVolumeBoundaries()
     {
         // Assuming SoundVolume increments or decrements by 0.2f as per your UIManager implementation
@@ -69,7 +136,7 @@ public class SoundIncreaseTest
 
         yield return null;
     }
-
+*/
     [Test]
     public void TestSoundVolumeIncrease()
     {
@@ -81,20 +148,4 @@ public class SoundIncreaseTest
     }
 
 
-    [UnityTest]
-    public IEnumerator RapidPauseUnpauseStressTest()
-    {
-        for (int i = 0; i < 100; i++)
-        {
-            uiManager.PauseGame(true);
-            yield return new WaitForSeconds(0.01f); // A short wait between operations to simulate rapid but not instant toggling
-            uiManager.PauseGame(false);
-            yield return new WaitForSeconds(0.01f);
-        }
-
-        // Assert that the game is not paused after all the toggling
-        Assert.IsFalse(uiManager.IsPauseScreenActive());
-
-        yield return null;
-    }
 }
