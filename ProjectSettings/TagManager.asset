@@ -13,6 +13,7 @@ TagManager:
   - Steak
   - Chicken
   - Salad
+  - Background
   layers:
   - Default
   - TransparentFX
