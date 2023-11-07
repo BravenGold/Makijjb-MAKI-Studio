@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7388313726775935055}
   m_Layer: 0
   m_Name: rawmeat
-  m_TagString: Untagged
+  m_TagString: Steak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,3 +186,4 @@ MonoBehaviour:
   isCookable: 0
   CookingTimer: 0
   points: 0
+  cooked: 0

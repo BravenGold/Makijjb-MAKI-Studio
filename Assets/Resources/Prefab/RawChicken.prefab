@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7728815505434954099}
   m_Layer: 0
   m_Name: RawChicken
-  m_TagString: Untagged
+  m_TagString: Chicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,3 +186,4 @@ MonoBehaviour:
   isCookable: 0
   CookingTimer: 0
   points: 0
+  cooked: 0

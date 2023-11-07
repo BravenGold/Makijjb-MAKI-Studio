@@ -10,6 +10,9 @@ TagManager:
   - PathContainer
   - Customer
   - Food
+  - Steak
+  - Chicken
+  - Salad
   layers:
   - Default
   - TransparentFX
