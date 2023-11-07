@@ -13,6 +13,11 @@ public class FoodObjectPool : MonoBehaviour{
     private void Start(){
         for(int i=0;i<poolstarting;i++){
             GameObject Food = Instantiate(Foodprefab);
+            Food foodComponent = Food.GetComponent<Food>();
+            foodComponent.Cookable();
+            foodComponent.Timer();
+            foodComponent.PointAllocation();
+
             FoodPool.Enqueue(Food);
             Food.SetActive(false);
         }
