@@ -14,8 +14,10 @@ public class OvenStarter : MonoBehaviour
     private SaladPool Sapool;
     private Collider2D foodCollision;
     private int foodid = 0;
-    // Start is called before the first frame update
+    //Animation Variables
+    public Animator ovencook;
 
+    // Start is called before the first frame update
 
     void Start(){
         objectPool = FindAnyObjectByType<FoodObjectPool>();
@@ -36,6 +38,8 @@ public class OvenStarter : MonoBehaviour
                 Steak SteakComponent = foodCollision.GetComponent<Steak>();
                 if(SteakComponent.isCookable==true&&Cooking==false){
                     Cooking = true;
+                    ovencook.SetBool("OvenOn",true);
+                    SteakComponent.PlayCookingAnimation();
                     foodCollision.transform.position = MovePoint.transform.position;
                 }else{
                     Debug.Log("Please remove food item");
@@ -67,6 +71,7 @@ public class OvenStarter : MonoBehaviour
                     {
                         collider.transform.position = this.transform.position;
                         Cooking = false;
+                        ovencook.SetBool("OvenOn",false);
                     }
                 }
             }

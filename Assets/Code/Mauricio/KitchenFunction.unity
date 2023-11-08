@@ -305,6 +305,7 @@ MonoBehaviour:
   Cooking: 0
   isInRange: 0
   interactKey: 102
+  ovencook: {fileID: 1788093322}
 --- !u!58 &248914177
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -187,3 +187,4 @@ MonoBehaviour:
   CookingTimer: 0
   points: 0
   cooked: 0
+  steakAnimator: {fileID: 7576690679652631314}
