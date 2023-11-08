@@ -8,6 +8,8 @@ public class Interactbutton : MonoBehaviour{
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+
+    public GameObject text;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class Interactbutton : MonoBehaviour{
     {
         if(isInRange){
             if(Input.GetKeyDown(interactKey)){
+                text.SetActive(false);
                 interactAction.Invoke();
             }
         }
@@ -26,12 +29,14 @@ public class Interactbutton : MonoBehaviour{
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Player")){
             isInRange = true;
+            text.SetActive(true);
             Debug.Log("Player is now in range");
         }
     }
     private void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Player")){
             isInRange = false;
+            text.SetActive(false);
             Debug.Log("Player is now out of range");
         }        
     }
