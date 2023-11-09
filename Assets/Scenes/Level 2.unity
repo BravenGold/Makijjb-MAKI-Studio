@@ -1541,8 +1541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be60a42192e164c9481845beee4e1bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FPS: 0
-  DishWashSignal: {fileID: 744838806}
 --- !u!222 &420623923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2129,9 +2127,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: -0.04}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.26
+  m_Radius: 1.2
 --- !u!114 &602580013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2161,7 +2159,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  text: {fileID: 0}
+  text: {fileID: 602580010}
 --- !u!1 &718413622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,8 +2387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c77912525b394463b8ae89d898b193a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddOrRemovePlates: 0
   Player: {fileID: 0}
+  POP: {fileID: 0}
 --- !u!1 &744838806
 GameObject:
   m_ObjectHideFlags: 0

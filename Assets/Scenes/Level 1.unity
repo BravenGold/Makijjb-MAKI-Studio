@@ -1281,9 +1281,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: -0.04}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.26
+  m_Radius: 1.5
 --- !u!114 &391765786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,7 +1313,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  text: {fileID: 0}
+  text: {fileID: 391765783}
 --- !u!1 &420623915
 GameObject:
   m_ObjectHideFlags: 0

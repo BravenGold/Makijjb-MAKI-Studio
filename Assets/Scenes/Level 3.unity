@@ -1197,7 +1197,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: -0.04}
+  m_Offset: {x: 0, y: -0.04}
   serializedVersion: 2
   m_Radius: 1.26
 --- !u!114 &391765786
@@ -1229,7 +1229,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  text: {fileID: 0}
+  text: {fileID: 391765783}
 --- !u!1 &420623915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,8 +2114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c77912525b394463b8ae89d898b193a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddOrRemovePlates: 0
   Player: {fileID: 0}
+  POP: {fileID: 0}
 --- !u!61 &766018234
 BoxCollider2D:
   m_ObjectHideFlags: 0
