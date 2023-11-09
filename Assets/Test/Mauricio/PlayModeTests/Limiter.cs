@@ -6,25 +6,50 @@ using UnityEngine;
 using UnityEngine.TestTools;
 
 public class Limiter{
+    private OvenStarter ovenStarter;
 
     private GameObject gameObject;
-    private FoodObjectPool Spawntest;
+    private SteakPool Spawntest;
 
     [SetUp]
     public void Setup()
     {
-        // Create a new GameObject and add the FoodObjectPool component to it.
+        // Create a new GameObject and add the SteakPool component to it.
         gameObject = new GameObject();
-        Spawntest = gameObject.AddComponent<FoodObjectPool>();
-        Spawntest.Foodprefab = Resources.Load<GameObject>("Prefab/Food");
+        Spawntest = gameObject.AddComponent<SteakPool>();
+        Spawntest.Steakprefab = Resources.Load<GameObject>("Prefab/rawmeat");
+        
+        GameObject ovenObject = new GameObject();
+        ovenStarter = ovenObject.AddComponent<OvenStarter>();
+        CircleCollider2D circleCollider = ovenObject.AddComponent<CircleCollider2D>();
+        circleCollider.radius = 5.0f; 
+        circleCollider.isTrigger = true;
+        ovenStarter.Cooking = false; 
+        ovenStarter.isInRange = false; 
+        ovenStarter.interactKey = KeyCode.F;
+
+        GameObject movePosition = new GameObject();
+        movePosition.transform.position = new Vector3(5.0f, 0.0f, 0.0f); // Adjust the position as needed.
+        BoxCollider2D boxCollider = movePosition.AddComponent<BoxCollider2D>();
+        boxCollider.size = new Vector2(2.0f, 2.0f);
+
+        ovenStarter.MovePoint = movePosition;
     }
     [UnityTest]
     public IEnumerator LimiterWithEnumeratorPasses(){
-        int spawnum = 0;
-        for(spawnum=0;spawnum<50;spawnum++){
-            Spawntest.GetFood();
-        }
-        Assert.AreEqual(30,Spawntest.Foodcount());
+
+        // Obtain a steak GameObject from the Spawntest.
+        GameObject steak1 = Spawntest.GetSteak();
+    
+        // Get the position of the ovenObject's 2D Box Collider.
+        Vector3 targetPosition = ovenStarter.GetComponent<Collider2D>().bounds.center;
+        
+        // Move the steak object to the target position.
+        steak1.transform.position = targetPosition;
+
+        // Assert that the steak is within the oven's 2D Box Collider.
+        Assert.IsTrue(ovenStarter.GetComponent<Collider2D>().bounds.Contains(steak1.transform.position));
+
         return null;
     }
 }

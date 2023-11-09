@@ -10,6 +10,7 @@ public class FoodObjectPool : MonoBehaviour{
     [SerializeField]private int poolstarting = 30;
     public int count = 0; 
 
+
     private void Start(){
         for(int i=0;i<poolstarting;i++){
             GameObject Food = Instantiate(Foodprefab);

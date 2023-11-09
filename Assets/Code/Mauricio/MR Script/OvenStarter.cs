@@ -27,7 +27,7 @@ public class OvenStarter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    public void Update(){
         if(isInRange && foodid==1){
             if(Input.GetKeyDown(interactKey)){
                 objectPool.ReturnFood(foodCollision.gameObject);
@@ -79,7 +79,7 @@ public class OvenStarter : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision){
+    public void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Food")){
             isInRange = true;
             foodCollision = collision;

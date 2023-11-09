@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class SteakPool : MonoBehaviour
 {
+    private static SteakPool instance;
+    private static readonly object lockobject = new object();
     [SerializeField]public GameObject Steakprefab;
     [SerializeField]private Queue<GameObject> SteakobjPool = new Queue<GameObject>();
     [SerializeField]private int poolstarting = 10;
     public int count = 0; 
+
+    private void Awake(){
+        lock(lockobject){
+            if(instance==null){
+                instance=this;
+            }else{
+                Destroy(this.gameObject);
+            }
+        }
+    }
 
     private void Start(){
         for(int i=0;i<poolstarting;i++){
@@ -40,5 +52,9 @@ public class SteakPool : MonoBehaviour
     }
     public int Foodcount(){
         return count;
+    }
+
+    public static SteakPool GetInstance(){
+        return instance;
     }
 }
