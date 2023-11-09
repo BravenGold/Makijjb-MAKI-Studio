@@ -11,7 +11,7 @@ public class DishWasher
     {
 
         var gameObject = new GameObject();
-        var Dishwa = gameObject.AddComponent<DishwasherFunctionality>();
+        var Dishwa = gameObject.AddComponent<SingletonDishwasher>();
 
         //max amount of dishes
         for (int i = 0; i < 5; i++)

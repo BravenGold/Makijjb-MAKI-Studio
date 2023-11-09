@@ -14,7 +14,7 @@ public class StressTest
     public IEnumerator StressTestWithEnumeratorPasses()
     {
         var gameObject = new GameObject();
-        var Dishwa = gameObject.AddComponent<DishwasherFunctionality>();
+        var Dishwa = gameObject.AddComponent<SingletonDishwasher>();
         int i = 0;
         float FRT = 50.0f;
 

@@ -44,10 +44,4 @@ public class PlateObjectPool : MonoBehaviour
         PlatePool.Enqueue(Plate);
         Plate.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DishwasherFunctionality : MonoBehaviour
+public class SingletonDishwasher : MonoBehaviour
 {
     int platesAdded = 0, clicks = 0;
     float xcoord = -0.12f, ycoord = 0.7f;
@@ -10,16 +10,28 @@ public class DishwasherFunctionality : MonoBehaviour
     public PlateObjectPool POP;
     private GameObject[] newPlate = new GameObject[5];
 
+
+    //Singleton implementation
+    public static SingletonDishwasher instance { get; private set; }
+
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+    //end of singleton implementation
+
+
     // Start is called before the first frame update
     void Start()
     {
         POP = FindObjectOfType<PlateObjectPool>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnMouseDown()
@@ -42,7 +54,6 @@ public class DishwasherFunctionality : MonoBehaviour
             }
             else
             {
-                Debug.Log("Dishwasher is full click to empty");
                 platesAdded = 0;
                 clicks = 0;
                 for (int i = 0; i < 5; i++)
