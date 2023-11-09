@@ -5,13 +5,15 @@ using UnityEngine;
 public class DishwasherFunctionality : MonoBehaviour
 {
     int platesAdded = 0, clicks = 0;
-    public bool AddOrRemovePlates;
+    float xcoord = -0.12f, ycoord = 0.7f;
     public GameObject Player;
+    public PlateObjectPool POP;
+    private GameObject[] newPlate = new GameObject[5];
 
     // Start is called before the first frame update
     void Start()
     {
-        //AddOrRemovePlates = false;
+        POP = FindObjectOfType<PlateObjectPool>();
     }
 
     // Update is called once per frame
@@ -26,15 +28,12 @@ public class DishwasherFunctionality : MonoBehaviour
         {
             if (platesAdded < 5)
             {
+                newPlate[platesAdded] = POP.GetPlate();
+                newPlate[platesAdded].transform.position = transform.position + new Vector3(xcoord,ycoord);
                 platesAdded++;
                 clicks++;
-                Debug.Log("Plates: " + platesAdded);
-            }
-            else if (clicks == 6)
-            {
-                platesAdded = 0;
-                Debug.Log("Plates: " + platesAdded);
-                clicks = 0;
+                xcoord += .03f;
+                ycoord -= .04f;
             }
             else if (platesAdded < 0)
             {
@@ -44,7 +43,14 @@ public class DishwasherFunctionality : MonoBehaviour
             else
             {
                 Debug.Log("Dishwasher is full click to empty");
-                clicks++;
+                platesAdded = 0;
+                clicks = 0;
+                for (int i = 0; i < 5; i++)
+                {
+                    POP.ReturnPlate(newPlate[i]);
+                }
+                xcoord = -0.12f;
+                ycoord = 0.7f;
             }
         }
         else

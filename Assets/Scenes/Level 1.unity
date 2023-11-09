@@ -2180,6 +2180,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  text: {fileID: 0}
 --- !u!1 &420623915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2808,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2137815237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &553492595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553492597}
+  - component: {fileID: 553492598}
+  m_Layer: 0
+  m_Name: PlatePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &553492597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553492595}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.9490023, y: 0.4257202, z: -14.368065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553492598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553492595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1dc8e9cd1f04bffa5e7e70d5009724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlatePrefab: {fileID: 1840491593480338113, guid: e45b778849d2f4e0b8749ccb9cc07c15, type: 3}
+  InitialPoolSize: 5
 --- !u!1 &554917859
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,8 +3094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c77912525b394463b8ae89d898b193a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddOrRemovePlates: 0
   Player: {fileID: 1638622654}
+  POP: {fileID: 0}
 --- !u!61 &766018234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3155,7 +3202,7 @@ Transform:
   m_GameObject: {fileID: 766018232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.38, y: 3.49, z: 0}
+  m_LocalPosition: {x: 3, y: -1, z: 0}
   m_LocalScale: {x: 2.7, y: 2.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7775,6 +7822,7 @@ SceneRoots:
   - {fileID: 1022584546}
   - {fileID: 2118150545}
   - {fileID: 766018236}
+  - {fileID: 553492597}
   - {fileID: 1113293313}
   - {fileID: 1703027589}
   - {fileID: 1153060089}
