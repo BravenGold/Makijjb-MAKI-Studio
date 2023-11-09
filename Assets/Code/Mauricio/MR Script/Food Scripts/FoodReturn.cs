@@ -29,6 +29,11 @@ public class FoodReturn : MonoBehaviour{
             }
         }else if(isInRange&&foodid==2){
             if(Input.GetKeyDown(interactKey)){
+                Steak SteakComponent = foodCollision.GetComponent<Steak>();
+                if(SteakComponent.cooked==true){
+                    SteakComponent.StopCookingAnimation();
+                    SteakComponent.cooked=false;
+                }
                 Spool.ReturnSteak(foodCollision.gameObject);
             }
         }else if(isInRange&&foodid==3){

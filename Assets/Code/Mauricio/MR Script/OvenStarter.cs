@@ -16,6 +16,7 @@ public class OvenStarter : MonoBehaviour
     private int foodid = 0;
     //Animation Variables
     public Animator ovencook;
+    public float timer; 
 
     // Start is called before the first frame update
 
@@ -39,6 +40,7 @@ public class OvenStarter : MonoBehaviour
                 if(SteakComponent.isCookable==true&&Cooking==false){
                     Cooking = true;
                     ovencook.SetBool("OvenOn",true);
+                    SteakComponent.cooked=true;
                     SteakComponent.PlayCookingAnimation();
                     foodCollision.transform.position = MovePoint.transform.position;
                 }else{
