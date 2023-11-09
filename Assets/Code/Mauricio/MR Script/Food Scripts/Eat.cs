@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-
-public class FoodReturn : MonoBehaviour{
-
+public class Eat : MonoBehaviour
+{
     public bool isInRange;
     public KeyCode interactKey;
     //public UnityEvent interactAction;
@@ -15,6 +13,9 @@ public class FoodReturn : MonoBehaviour{
     private ChickenPool CPool;
     private Collider2D foodCollision;
     private int foodid = 0;
+
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start(){
         objectPool = FindAnyObjectByType<FoodObjectPool>();
@@ -29,27 +30,41 @@ public class FoodReturn : MonoBehaviour{
             if(Input.GetKeyDown(interactKey)){
                 objectPool.ReturnFood(foodCollision.gameObject);
             }
-        }else if(isInRange&&foodid==2){
+        }
+        
+        else if(isInRange&&foodid==2){
             if(Input.GetKeyDown(interactKey)){
                 Steak SteakComponent = foodCollision.GetComponent<Steak>();
                 if(SteakComponent.cooked==true){
                     SteakComponent.StopCookingAnimation();
                     SteakComponent.cooked=false;
+                    gameManager.AddScore(SteakComponent.points);
+                    Spool.ReturnSteak(foodCollision.gameObject);
+                }else{
+                    Debug.Log("Cannot Eat Raw Food");
                 }
-                Spool.ReturnSteak(foodCollision.gameObject);
             }
-        }else if(isInRange&&foodid==3){
+        }
+        
+        else if(isInRange&&foodid==3){
             if(Input.GetKeyDown(interactKey)){
+                Salad SaladComponent = foodCollision.GetComponent<Salad>();
+                gameManager.AddScore(SaladComponent.points);
                 Sapool.ReturnSalad(foodCollision.gameObject);
             }
-        }else if(isInRange&&foodid==4){
+        }
+        
+        else if(isInRange&&foodid==4){
                 if(Input.GetKeyDown(interactKey)){
                 Chicken ChickenComponent = foodCollision.GetComponent<Chicken>();
                 if(ChickenComponent.cooked==true){
                     ChickenComponent.StopCookingAnimation();
                     ChickenComponent.cooked=false;
+                    gameManager.AddScore(ChickenComponent.points);
+                    Spool.ReturnSteak(foodCollision.gameObject);
+                }else{
+                    Debug.Log("Cannot Eat Raw Food");
                 }
-                Spool.ReturnSteak(foodCollision.gameObject);
             }
         }
     }
@@ -99,4 +114,3 @@ public class FoodReturn : MonoBehaviour{
         }
     }
 }
-

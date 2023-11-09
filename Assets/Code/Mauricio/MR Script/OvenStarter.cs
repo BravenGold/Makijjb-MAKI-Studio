@@ -12,6 +12,7 @@ public class OvenStarter : MonoBehaviour
     private FoodObjectPool objectPool;
     private SteakPool Spool;
     private SaladPool Sapool;
+    private ChickenPool CPool;
     private Collider2D foodCollision;
     private int foodid = 0;
     //Animation Variables
@@ -24,6 +25,8 @@ public class OvenStarter : MonoBehaviour
         objectPool = FindAnyObjectByType<FoodObjectPool>();
         Spool = FindAnyObjectByType<SteakPool>();
         Sapool = FindAnyObjectByType<SaladPool>();
+        CPool = FindAnyObjectByType<ChickenPool>();
+
     }
 
     // Update is called once per frame
@@ -56,7 +59,18 @@ public class OvenStarter : MonoBehaviour
         }
 
         else if(isInRange&&foodid==4){
-            Debug.Log("Chicken Holder");
+                if(Input.GetKeyDown(interactKey)){
+                Chicken chickenComponent = foodCollision.GetComponent<Chicken>();
+                if(chickenComponent.isCookable==true&&Cooking==false){
+                    Cooking = true;
+                    ovencook.SetBool("OvenOn",true);
+                    chickenComponent.cooked=true;
+                    chickenComponent.PlayCookingAnimation();
+                    foodCollision.transform.position = MovePoint.transform.position;
+                }else{
+                    Debug.Log("Please remove food item");
+                }
+            }
         }
         else if (!isInRange && Cooking == true){
             if (Input.GetKeyDown(interactKey)){
@@ -69,7 +83,7 @@ public class OvenStarter : MonoBehaviour
 
                 foreach (Collider2D collider in colliders)
                 {
-                    if (collider.CompareTag("Steak"))
+                    if (collider.CompareTag("Steak")||collider.CompareTag("Chicken"))
                     {
                         collider.transform.position = this.transform.position;
                         Cooking = false;

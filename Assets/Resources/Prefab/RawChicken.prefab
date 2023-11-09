@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5910010640339845612
 Transform:
   m_ObjectHideFlags: 0
@@ -187,3 +187,4 @@ MonoBehaviour:
   CookingTimer: 0
   points: 0
   cooked: 0
+  ChickenAnimator: {fileID: 2166936057808388562}
