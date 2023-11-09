@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class SaladPool : MonoBehaviour
 {
+    private static SaladPool instance;
+    private static readonly object lockObject = new object();
     [SerializeField]public GameObject Saladprefab;
     [SerializeField]private Queue<GameObject> SaladobjPool = new Queue<GameObject>();
     [SerializeField]private int poolstarting = 10;
     public int count = 0; 
+
+    private void Awake() {
+        lock (lockObject) {
+            if (instance == null) {
+                instance = this;
+            } else {
+                Destroy(this.gameObject);
+            }
+        }
+    }
 
     private void Start(){
         for(int i=0;i<poolstarting;i++){
@@ -40,5 +52,9 @@ public class SaladPool : MonoBehaviour
     }
     public int Foodcount(){
         return count;
+    }
+
+    public static SaladPool GetInstance(){
+        return instance;
     }
 }

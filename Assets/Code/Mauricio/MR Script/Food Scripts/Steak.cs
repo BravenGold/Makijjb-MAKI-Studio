@@ -16,4 +16,10 @@ public class Steak : Food
             steakAnimator.SetBool("cooked", true); // Adjust parameter names and conditions as per your Animator setup
         }
     }
+
+    public void StopCookingAnimation(){
+        if (steakAnimator != null){
+            steakAnimator.SetBool("cooked", false);
+        }
+    }
 }

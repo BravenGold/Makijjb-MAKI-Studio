@@ -16,6 +16,7 @@ public class OvenStarter : MonoBehaviour
     private int foodid = 0;
     //Animation Variables
     public Animator ovencook;
+    public float timer; 
 
     // Start is called before the first frame update
 
@@ -26,7 +27,7 @@ public class OvenStarter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    public void Update(){
         if(isInRange && foodid==1){
             if(Input.GetKeyDown(interactKey)){
                 objectPool.ReturnFood(foodCollision.gameObject);
@@ -39,6 +40,7 @@ public class OvenStarter : MonoBehaviour
                 if(SteakComponent.isCookable==true&&Cooking==false){
                     Cooking = true;
                     ovencook.SetBool("OvenOn",true);
+                    SteakComponent.cooked=true;
                     SteakComponent.PlayCookingAnimation();
                     foodCollision.transform.position = MovePoint.transform.position;
                 }else{
@@ -77,7 +79,7 @@ public class OvenStarter : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision){
+    public void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Food")){
             isInRange = true;
             foodCollision = collision;
