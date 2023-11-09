@@ -8,6 +8,7 @@ public class PathingV2 : MonoBehaviour
     public GameObject[] pathPoints;
     public int numberOfPoints;
     public float speed;
+    private bool orderReceived = false;
 
     private Vector3 actualPosition;
     private int x;
@@ -26,7 +27,24 @@ public class PathingV2 : MonoBehaviour
 
         if(actualPosition == pathPoints[x].transform.position && x != numberOfPoints - 1)
         {
-            x++;
+            if (orderReceived == false)
+            {
+                x++;
+            }
+            else
+            {
+                x--;
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if ((collision.gameObject.tag == "Steak" || collision.gameObject.tag == "Chicken") && orderReceived == true)
+        {
+            Debug.Log("FOOD RECEIVED");
+            orderReceived = true;
+            // Call functions in the future
         }
     }
 }

@@ -14,5 +14,12 @@ public class Customer : MonoBehaviour
             orderPlaced = true;
             // Call functions in the future
         }
+
+        if ((collision.gameObject.tag == "Steak" || collision.gameObject.tag == "Chicken") && orderPlaced == true)
+        {
+            Debug.Log("FOOD RECEIVED");
+            orderPlaced = true;
+            // Call functions in the future
+        }
     }
 }
