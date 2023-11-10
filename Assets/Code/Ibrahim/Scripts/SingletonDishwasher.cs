@@ -5,10 +5,13 @@ using UnityEngine;
 public class SingletonDishwasher : MonoBehaviour
 {
     int platesAdded = 0, clicks = 0;
-    float xcoord = -0.12f, ycoord = 0.7f;
+    public float xcoord = -0.12f, ycoord = 0.7f;
     public GameObject Player;
     public PlateObjectPool POP;
     private GameObject[] newPlate = new GameObject[5];
+    public SpriteRenderer Sprite;
+    [SerializeField]
+    public Sprite Level1Washer, Level2Washer, Level3Washer;
 
 
     //Singleton implementation
@@ -25,15 +28,19 @@ public class SingletonDishwasher : MonoBehaviour
             instance = this;
         }
     }
-    //end of singleton implementation
+    //End of singleton implementation
 
 
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
         POP = FindObjectOfType<PlateObjectPool>();
+        Sprite = gameObject.GetComponent<SpriteRenderer>();
+        XYcoord();
+        ChangeSprite();
     }
 
+    //Checks if the dishwasher was clicked
     public void OnMouseDown()
     {
         if (Vector3.Distance(transform.position, Player.transform.position) < 1.5)
@@ -70,5 +77,17 @@ public class SingletonDishwasher : MonoBehaviour
         }
     }
 
+    //Virtual Functions
+    public virtual void XYcoord()
+    {
+        xcoord = -0.12f;
+        ycoord = 0.7f;
+    }
+
+    public virtual void ChangeSprite()
+    {
+        Sprite.sprite = Level1Washer;
+    }
+    //End of virtual functions
 }
 
