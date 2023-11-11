@@ -10,6 +10,7 @@ public class SingletonDishwasher : MonoBehaviour
     public PlateObjectPool POP;
     private GameObject[] newPlate = new GameObject[5];
     public SpriteRenderer Sprite;
+    private AudioSource Audio;
     [SerializeField]
     public Sprite Level1Washer, Level2Washer, Level3Washer;
 
@@ -35,6 +36,10 @@ public class SingletonDishwasher : MonoBehaviour
     void Start()
     {
         POP = FindObjectOfType<PlateObjectPool>();
+
+        Audio = GetComponent<AudioSource>();
+        Audio.time = 2f;
+
         Sprite = gameObject.GetComponent<SpriteRenderer>();
         XYcoord();
         ChangeSprite();
@@ -53,6 +58,7 @@ public class SingletonDishwasher : MonoBehaviour
                 clicks++;
                 xcoord += .03f;
                 ycoord -= .04f;
+                Audio.Play();
             }
             else if (platesAdded < 0)
             {
