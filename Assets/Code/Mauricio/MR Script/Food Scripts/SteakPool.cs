@@ -1,3 +1,12 @@
+  /********************************
+  * SteakPool.cs
+  * Mauricio Rodriguez, Maki Studios
+  *
+  * This is where the magic happens for the object pool. This creates the 
+  * object pool and handles it functionality.
+  ********************************/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +43,7 @@ public class SteakPool : MonoBehaviour
         }
     }
 
+    //Handles the "spawing" of the steak prefab. 
     public GameObject GetSteak(){
         if(SteakobjPool.Count > 0){
                 GameObject Food = SteakobjPool.Dequeue();
@@ -45,15 +55,17 @@ public class SteakPool : MonoBehaviour
         }
     }
 
+    //This brings the steak bask to the queue. 
     public void ReturnSteak(GameObject Food){
         SteakobjPool.Enqueue(Food);
         Food.SetActive(false);
         count--;
     }
+    //Counts the amount of food objects in existence.
     public int Foodcount(){
         return count;
     }
-
+    //A refrence of the Steakpool method can be done using this method
     public static SteakPool GetInstance(){
         return instance;
     }
