@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateScore(){
-        ScoreText.text = "Score "+Score;
+        ScoreText.text = "Score: "+Score + "\nGoal: " +maxScore;
     }
     void Update(){
         UpdateScore();
