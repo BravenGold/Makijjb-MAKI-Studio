@@ -3,87 +3,106 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-
-    [Header("Pause")]
+    [Header("UI Screens")]
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject mainMenuScreen; // Serialized field for the main menu screen
 
-    [Header("Audio Manager")]
-    [SerializeField] private IAudioManager audioManager; // Direct reference to AudioManager
-
+    private GameManager gameManager; // Reference to GameManager
 
     private void Awake()
     {
-        if (pauseScreen != null)
+        gameManager = FindObjectOfType<GameManager>(); // Find the GameManager in the scene
+
+        if (gameManager == null)
         {
-            pauseScreen.SetActive(false);
+            Debug.LogError("GameManager not found in the scene.");
+            return;
         }
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //If pause screen already active unpause and viceversa
-            PauseGame(!pauseScreen.activeInHierarchy);
+            TogglePauseGame();
         }
     }
 
-    public void SetPauseScreen(GameObject screen)
+    public void SetPauseScreenActive(bool active)
     {
-        pauseScreen = screen;
         if (pauseScreen != null)
         {
-            pauseScreen.SetActive(false);
+            Debug.Log($"Setting pause screen active: {active}");
+            pauseScreen.SetActive(active);
+        }
+        else
+        {
+            Debug.LogError("PauseScreen is not assigned in UIManager.");
+        }
+    }
+
+    public void SetMainMenuActive(bool active)
+    {
+        if (mainMenuScreen != null)
+        {
+            Debug.Log($"Setting main menu screen active: {active}");
+            mainMenuScreen.SetActive(active);
+        }
+        else
+        {
+            Debug.LogError("MainMenuScreen is not assigned in UIManager.");
         }
     }
 
 
+    public void TogglePauseGame()
+    {
+        if (gameManager.CurrentState is PauseMenuState)
+        {
+            gameManager.ChangeState(new InGameState(this, gameManager));
+        }
+        else
+        {
+            gameManager.ChangeState(new PauseMenuState(this, gameManager));
+        }
+    }
 
-    #region Pause
-    //Restart level
+
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (gameManager != null)
+        {
+            gameManager.ChangeState(new InGameState(this, gameManager));
+        }
     }
 
-    //Main Menu
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0); // Load the main menu scene
+        if (gameManager != null)
+        {
+            gameManager.ChangeState(new MainMenuState(this, gameManager));
+        }
     }
 
-    //Quit game/exit play mode if in Editor
     public void Quit()
     {
-        Application.Quit(); //Quits the game (only works in build)
-
+        Application.Quit();
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; //Exits play mode (will only be executed in the editor)
+        UnityEditor.EditorApplication.isPlaying = false; // Quit the play mode in editor
 #endif
     }
 
-    public bool IsPauseScreenActive()
-    {
-        return pauseScreen ? pauseScreen.activeInHierarchy : false;
-    }
-    public void PauseGame(bool status)
-    {
-        //If status == true pause | if status == false unpause
-        pauseScreen.SetActive(status);
-
-        //When pause status is true change timescale to 0 (time stops)
-        //when it's false change it back to 1 (time goes by normally)
-        if (status)
-            Time.timeScale = 0;
-        else
-            Time.timeScale = 1;
-    }
     public void SoundVolume()
     {
         AudioManager.instance.ChangeSoundVolume(0.2f);
     }
+
     public void MusicVolume()
     {
         AudioManager.instance.ChangeMusicVolume(0.2f);
     }
-    #endregion
+
+    // Additional UI-related methods if needed
 }

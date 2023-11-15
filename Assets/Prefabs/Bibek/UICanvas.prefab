@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 2837601292616658810}
+  mainMenuScreen: {fileID: 2765445027127355795, guid: ea2c62ac7c070444691d91d385b73906, type: 3}
 --- !u!1 &2796992721317019835
 GameObject:
   m_ObjectHideFlags: 0
