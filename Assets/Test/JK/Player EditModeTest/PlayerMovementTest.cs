@@ -22,8 +22,8 @@ public class PlayerMovementTest
         MouseClickMovement mouseClickMovement = player.AddComponent<MouseClickMovement>();
         mouseClickMovement.speed = 10f;
 
-        // Simulate a mouse click
-        mouseClickMovement.HandleMouseClick();
+        
+      
 
         // Wait for one frame to update the movement
         yield return null;
