@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 25767425}
   m_Layer: 0
   m_Name: Table 2
-  m_TagString: Table2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1553,7 +1553,7 @@ GameObject:
   - component: {fileID: 420623916}
   m_Layer: 0
   m_Name: Table 3
-  m_TagString: Table3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2670,7 +2670,7 @@ GameObject:
   - component: {fileID: 766018238}
   m_Layer: 0
   m_Name: Dishwasher
-  m_TagString: WashArea
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4819,7 +4819,7 @@ GameObject:
   - component: {fileID: 1335925085}
   m_Layer: 0
   m_Name: Table 4
-  m_TagString: Table4
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6048,7 +6048,7 @@ GameObject:
   - component: {fileID: 1653200484}
   m_Layer: 0
   m_Name: Fridge_0
-  m_TagString: Fridge
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7688,7 +7688,7 @@ GameObject:
   - component: {fileID: 2137815237}
   m_Layer: 0
   m_Name: Kitchen
-  m_TagString: Kitchen
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
