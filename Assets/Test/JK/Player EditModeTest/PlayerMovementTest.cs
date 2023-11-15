@@ -1,4 +1,4 @@
-/***using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using NUnit.Framework;
@@ -22,7 +22,7 @@ public class PlayerMovementTest
         MouseClickMovement mouseClickMovement = player.AddComponent<MouseClickMovement>();
         mouseClickMovement.speed = 10f;
 
-
+        
       
 
         // Wait for one frame to update the movement
@@ -46,5 +46,3 @@ public class PlayerMovementTest
     }
 
 }
-
-8**/
