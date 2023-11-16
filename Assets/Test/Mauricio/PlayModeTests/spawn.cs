@@ -48,3 +48,9 @@ public class spawn{
         return null;
     }
 }
+/*
+This test helped when for some reason nothing was moving in our game. Some one pushed a version of the game that would pause everything in a level. 
+It wasn't until a player paused and unpaused the game then would the game resume as normal. I had no idea how that was happening. I though it was a singular 
+scene issue. But trying the test and seeing it was not running made me check other scenes. It turns out all scenes were being paused by something this person 
+pushed. I then had to go through their files and find what is causing this exact issue. 
+*/

@@ -1,0 +1,18 @@
+The item being taken is the beef and chicken from the popular game Minecraft. 
+
+1) I argue that in our project the subject is being transformed in purpose. 
+It does not fullfill the same purpose as in Minecraft. In Minecraft it is an
+item that is obtained from killing a cow. Then this food item is shown in a 3D 
+enviornment. It then can be picked up by the player to be eaten/cooked. In our game
+the food item is obtained from a fridge. It then can be moved by the player to be cooked order
+thrown away. It also cannot be eaten by the player it can only be eaten by customers in the 
+the restaurant. The sprites have been changed in purpose and presentation. it is no longer in
+a 3D enviornment instead a 2D enviornment. It can be obtained through a fridge as opposed to killing
+an animal. 
+
+2)My second reason that this falls into fair use is that the sprite is a minor factor
+in the game itself. It is not the focus of the game. It is an accessory to the game. 
+There is a hunger feature in Minecraft but its not the reason people Minecraft for. In our game
+it is the same way people do not play the game to see the sprites they play it to give the customer 
+the food. The food could look anyway and it would still function the same way. There fore it is not 
+the "heart" of the game. 
