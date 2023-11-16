@@ -1,3 +1,12 @@
+  /********************************
+  * Limiter.cs
+  * Mauricio Rodriguez, Maki Studios
+  *
+  * This test detects whether or not a
+  * steak prefab can be detected by the 
+  * interact function. 
+  * 
+  ********************************/
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -29,7 +38,7 @@ public class Limiter{
         ovenStarter.interactKey = KeyCode.F;
 
         GameObject movePosition = new GameObject();
-        movePosition.transform.position = new Vector3(5.0f, 0.0f, 0.0f); // Adjust the position as needed.
+        movePosition.transform.position = new Vector3(5.0f, 0.0f, 0.0f); 
         BoxCollider2D boxCollider = movePosition.AddComponent<BoxCollider2D>();
         boxCollider.size = new Vector2(2.0f, 2.0f);
 
