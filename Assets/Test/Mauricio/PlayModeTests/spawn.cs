@@ -15,15 +15,20 @@ public class spawn{
     [SetUp]
     public void Setup()
     {
+        Spawntest = SteakPool.GetInstance();
         // Create a new GameObject and add the SteakPool component to it.
-        gameObject = new GameObject();
-        Spawntest = gameObject.AddComponent<SteakPool>();
-        Spawntest.Steakprefab = Resources.Load<GameObject>("Prefab/rawmeat");
-
+        if(Spawntest==null){
+            gameObject = new GameObject();
+            Spawntest = gameObject.AddComponent<SteakPool>();
+            Spawntest.Steakprefab = Resources.Load<GameObject>("Prefab/rawmeat");
+        }
+        Saladtest = SaladPool.GetInstance();
         //This is the set up for the saladpool and a game object
-        SaladObject = new GameObject();
-        Saladtest = SaladObject.AddComponent<SaladPool>();
-        Saladtest.Saladprefab = Resources.Load<GameObject>("Prefab/salad");
+        if(Saladtest==null){
+            SaladObject = new GameObject();
+            Saladtest = SaladObject.AddComponent<SaladPool>();
+            Saladtest.Saladprefab = Resources.Load<GameObject>("Prefab/salad");
+        }
     }
     [UnityTest]
     public IEnumerator LimiterWithEnumeratorPasses(){
