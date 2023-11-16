@@ -2,32 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Customer : MonoBehaviour
-{
-    // Public varaibles so other scripts (PathingV2) can access the status of customers
-    public bool orderPlaced = false;
-    public bool orderReceived = false;
 
-    // Start to disable the order graphics
-    private void Start()
-    {
-        gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        gameObject.transform.GetChild(1).gameObject.SetActive(false);
-    }
+// GrumpyCustomer is a subclass of Customer that prefers
+public class GrumpyCustomer : Customer
+{
+    // No additional variables needed! Inherits variables from customer superclass
+
 
     // COLLISION CHECKERS
-    virtual public void OnCollisionEnter2D(Collision2D collision)
+    // OnCollisionEnter2D is overwritten to have different conditions than a regular customer
+    // NOTE: Keyword new is "required" according to documentation to make sure this function overloads the old one
+    new public void OnCollisionEnter2D(Collision2D collision)
     {
-        // Default caveman customer will order Steak
-        string orderTag = "Steak";
+        // GrumpyCustomers DEMAND Chicken
+        string orderTag = "Chicken";
         // Check to see if the customer has collided with the played and if the order has already been placed
         if (collision.gameObject.tag == "Player" && orderPlaced == false)
         {
             // Print to debug log
             Debug.Log("CUSTOMER CLICKED AND ORDER PLACED");
 
-            // Enable the order graphic (Steak)
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            // Enable the order graphic (Chicken)
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
             // Make sure customer knows order has been placed
             orderPlaced = true;
@@ -42,7 +38,7 @@ public class Customer : MonoBehaviour
             Debug.Log("FOOD RECEIVED");
 
             // Disable the order graphic (Chicken) 
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
             // The order has been received. Important for pathing script!
             orderReceived = true;
