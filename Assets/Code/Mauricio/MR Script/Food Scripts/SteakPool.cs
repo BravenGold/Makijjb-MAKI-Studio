@@ -33,7 +33,7 @@ public class SteakPool : MonoBehaviour
     private void Start(){
         for(int i=0;i<poolstarting;i++){
             GameObject Food = Instantiate(Steakprefab);
-            Steak foodComponent = Food.GetComponent<Steak>();
+            Food foodComponent = Food.GetComponent<Steak>();
             foodComponent.Cookable();
             foodComponent.Timer();
             foodComponent.PointAllocation();

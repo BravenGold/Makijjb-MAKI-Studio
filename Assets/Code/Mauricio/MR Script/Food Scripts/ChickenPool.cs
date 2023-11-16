@@ -24,7 +24,7 @@ public class ChickenPool : MonoBehaviour
     private void Start(){
         for(int i=0;i<poolstarting;i++){
             GameObject Food = Instantiate(Chickenprefab);
-            Chicken foodComponent = Food.GetComponent<Chicken>();
+            Food foodComponent = Food.GetComponent<Chicken>();
             foodComponent.Cookable();
             foodComponent.Timer();
             foodComponent.PointAllocation();

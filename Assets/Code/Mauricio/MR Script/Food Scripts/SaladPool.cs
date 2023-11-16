@@ -24,7 +24,7 @@ public class SaladPool : MonoBehaviour
     private void Start(){
         for(int i=0;i<poolstarting;i++){
             GameObject Food = Instantiate(Saladprefab);
-            Salad foodComponent = Food.GetComponent<Salad>();
+            Food foodComponent = Food.GetComponent<Salad>();
             foodComponent.Cookable();
             foodComponent.Timer();
             foodComponent.PointAllocation();
