@@ -4079,7 +4079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInRange: 0
   interactKey: 102
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 619258065}
 --- !u!58 &1078358617
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4512,6 +4512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1286423574950806334, guid: 10fecd73ba0fac04483cbcca5bb77a37, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 619258065}
     - target: {fileID: 2508580567711801985, guid: 10fecd73ba0fac04483cbcca5bb77a37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.88
@@ -6118,6 +6122,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4359563882030871516, guid: 781418dc69c810846abb728425f6d6e1, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 619258065}
     - target: {fileID: 4412240753293282945, guid: 781418dc69c810846abb728425f6d6e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -7286,7 +7294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInRange: 0
   interactKey: 102
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 619258065}
 --- !u!61 &2038153872
 BoxCollider2D:
   m_ObjectHideFlags: 0

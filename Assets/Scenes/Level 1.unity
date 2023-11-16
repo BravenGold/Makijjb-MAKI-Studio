@@ -887,6 +887,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4359563882030871516, guid: 781418dc69c810846abb728425f6d6e1, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2029650018}
     - target: {fileID: 4412240753293282945, guid: 781418dc69c810846abb728425f6d6e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -1563,7 +1567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInRange: 0
   interactKey: 102
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 2029650018}
 --- !u!61 &392720280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3199,7 +3203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInRange: 0
   interactKey: 102
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 2029650018}
 --- !u!58 &693028794
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3419,6 +3423,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1286423574950806334, guid: 10fecd73ba0fac04483cbcca5bb77a37, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2029650018}
     - target: {fileID: 2508580567711801985, guid: 10fecd73ba0fac04483cbcca5bb77a37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.88
@@ -5508,7 +5516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 131, y: -81.85}
+  m_AnchoredPosition: {x: 131, y: -81.850006}
   m_SizeDelta: {x: 200, y: 125.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1268306280
