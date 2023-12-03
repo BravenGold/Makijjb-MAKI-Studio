@@ -1,3 +1,14 @@
+  /********************************
+  * Eat.cs
+  * Mauricio Rodriguez, Maki Studios
+  *
+  * This checks to see if a food item is near a customer 
+  *  if it is then it is eaten by the customer and the 
+  * points are allocated to the score board. 
+  *  
+  ********************************/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

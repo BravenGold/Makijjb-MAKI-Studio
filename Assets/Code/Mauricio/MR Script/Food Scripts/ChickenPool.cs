@@ -1,3 +1,11 @@
+  /********************************
+  * SteakPool.cs
+  * Mauricio Rodriguez, Maki Studios
+  *
+  * This is where the magic happens for the object pool. This creates the 
+  * object pool and handles it functionality.
+  ********************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,10 +29,11 @@ public class ChickenPool : MonoBehaviour
         }
     }
 
+    //Handles the "spawing" of the chicken prefab. 
     private void Start(){
         for(int i=0;i<poolstarting;i++){
             GameObject Food = Instantiate(Chickenprefab);
-            Chicken foodComponent = Food.GetComponent<Chicken>();
+            Food foodComponent = Food.GetComponent<Chicken>();
             foodComponent.Cookable();
             foodComponent.Timer();
             foodComponent.PointAllocation();
@@ -33,7 +42,7 @@ public class ChickenPool : MonoBehaviour
             Food.SetActive(false);
         }
     }
-
+    //Handles the fetching of the chicken prefab. 
     public GameObject GetChicken(){
         if(chickenobjPool.Count > 0){
                 GameObject Food = chickenobjPool.Dequeue();
@@ -44,16 +53,18 @@ public class ChickenPool : MonoBehaviour
             return null;
         }
     }
-
+    //This returns the chicken prefab to the queue
     public void ReturnChicken(GameObject Food){
         chickenobjPool.Enqueue(Food);
         Food.SetActive(false);
         count--;
     }
+    //This method keeps track of how many food items are out of the queue
     public int Foodcount(){
         return count;
     }
 
+    //This refers to the instance of the objectpool 
     public static ChickenPool GetInstance(){
         return instance;
     }
