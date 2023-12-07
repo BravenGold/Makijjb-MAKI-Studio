@@ -3638,7 +3638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xcoord: 0
   ycoord: 0
-  Player: {fileID: 0}
+  Player: {fileID: 1811843122}
   POP: {fileID: 0}
   Sprite: {fileID: 0}
   Level1Washer: {fileID: 21300000, guid: b2451a32a7d6d44b983623cb7ba91283, type: 3}
@@ -6572,6 +6572,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2581806cf8d43b58f7d5406b5233e3, type: 3}
+--- !u!1 &1811843122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5380205311881380563, guid: ff2581806cf8d43b58f7d5406b5233e3, type: 3}
+  m_PrefabInstance: {fileID: 1811843121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1896201242
 GameObject:
   m_ObjectHideFlags: 0
