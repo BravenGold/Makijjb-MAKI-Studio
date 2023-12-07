@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 705647027}
   Score: 0
-  maxScore: 50
+  maxScore: 20
   Youtext: {fileID: 441626972}
 --- !u!4 &1034543065
 Transform:
@@ -4549,13 +4549,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206799965}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25862527, y: 0.21977586, z: 0.6091171, w: 0.71679}
-  m_LocalPosition: {x: 4.97, y: 0.14, z: 0}
-  m_LocalScale: {x: 0.62, y: 7.2459617, z: 1}
+  m_LocalRotation: {x: -0.028879765, y: -0.14299572, z: 0.4370792, w: 0.88751334}
+  m_LocalPosition: {x: 6.78, y: 2.38, z: 0.14}
+  m_LocalScale: {x: 0.36582908, y: 4.2754574, z: 0.5900469}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 5.913, y: 39.309, z: 82.828}
+  m_LocalEulerAnglesHint: {x: 4.229, y: -16.25, z: 51.834}
 --- !u!1 &1225318322
 GameObject:
   m_ObjectHideFlags: 0
@@ -6111,7 +6111,7 @@ Transform:
   m_GameObject: {fileID: 1653200482}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.83, y: -1.73, z: 0}
+  m_LocalPosition: {x: 5.29, y: 0.47, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
