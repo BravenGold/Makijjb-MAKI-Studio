@@ -11,7 +11,7 @@ public class PathingV2 : MonoBehaviour
     public Customer customerReference;
 
     // Reference to the object pool to take and store customers
-    public CustomerObjectPool customerObjectPool;
+    // public CustomerObjectPool customerObjectPool;
 
     // The actual customer object this instance of PathingV2 will control
     public GameObject customerObject;
@@ -33,7 +33,7 @@ public class PathingV2 : MonoBehaviour
     void Start()
     {
         // Access the customer object pool and set this customer to be active!
-        customerObject = customerObjectPool.GetCustomerFromPool();
+        // customerObject = customerObjectPool.GetCustomerFromPool();
 
         // Store the starting position for resetting purposes
         startingPosition = customerObject.transform.position;
@@ -107,7 +107,7 @@ public class PathingV2 : MonoBehaviour
             customerReference.orderReceived = false;
 
             // Return to pool
-            customerObjectPool.ReturnCustomerToPool(customerObject);
+            // customerObjectPool.ReturnCustomerToPool(customerObject);
         }
     }
 }
