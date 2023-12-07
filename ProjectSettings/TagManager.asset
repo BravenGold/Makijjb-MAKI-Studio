@@ -14,6 +14,10 @@ TagManager:
   - Chicken
   - Salad
   - Background
+  - Fridge
+  - Oven
+  - Trash
+  - Counter
   layers:
   - Default
   - TransparentFX
